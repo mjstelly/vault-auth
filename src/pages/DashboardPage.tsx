@@ -30,7 +30,7 @@ export function DashboardPage() {
   return (
     <div className={styles.page}>
       <div className={styles.header}>
-        <span className={styles.headerTitle}>Dashboard</span>
+        <h1 className={styles.headerTitle}>Dashboard</h1>
         <button
           type="button"
           className={styles.signOutButton}
@@ -75,7 +75,7 @@ export function DashboardPage() {
       </div>
 
       <div className={styles.productsSection}>
-        <span className={styles.productsLabel}>Products</span>
+        <h2 className={styles.productsLabel}>Products</h2>
         {productsQuery.isLoading && (
           <div className={styles.productsGrid}>
             {Array.from({ length: 6 }, (_, i) => (
