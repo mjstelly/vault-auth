@@ -30,9 +30,7 @@ npm run dev
 ## Decisions
 
 **Auth is real, not faked.** DummyJSON exposes `/auth/login`, `/auth/me`,
-and `/auth/products` — a complete token-based auth cycle. The token is held in React context and backed by sessionStorage (not
-localStorage) so page reloads don't drop the session while the token still
-clears when the tab closes. It is passed as a Bearer header on every
+and `/auth/products` — a complete token-based auth cycle. The token is held in React context only and passed as a Bearer header on every
 authenticated request. The dashboard is genuinely gated: hitting `/dashboard`
 without a token redirects to `/login`.
 

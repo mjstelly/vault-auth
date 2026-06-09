@@ -2,17 +2,6 @@ import { createContext, useState, useCallback, type ReactNode } from 'react';
 import { login as apiLogin } from '../api/auth';
 import type { AuthUser, LoginCredentials } from '../api/auth';
 
-const SESSION_KEY = 'vault_auth_user';
-
-function readSession(): AuthUser | null {
-  try {
-    const raw = sessionStorage.getItem(SESSION_KEY);
-    return raw ? (JSON.parse(raw) as AuthUser) : null;
-  } catch {
-    return null;
-  }
-}
-
 type AuthContextValue = {
   user: AuthUser | null;
   isAuthenticated: boolean;
@@ -26,7 +15,7 @@ type AuthContextValue = {
 export const AuthContext = createContext<AuthContextValue | null>(null);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<AuthUser | null>(readSession);
+  const [user, setUser] = useState<AuthUser | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -35,7 +24,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setError(null);
     try {
       const authUser = await apiLogin(credentials);
-      sessionStorage.setItem(SESSION_KEY, JSON.stringify(authUser));
       setUser(authUser);
       return true;
     } catch (err: unknown) {
@@ -47,7 +35,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const logout = useCallback(() => {
-    sessionStorage.removeItem(SESSION_KEY);
     setUser(null);
     setError(null);
   }, []);
