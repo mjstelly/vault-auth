@@ -109,10 +109,12 @@ State held in context:
 - error: string | null
 
 Actions:
-- login(credentials: LoginCredentials): Promise<void>
-  Calls api/auth login, sets user on success, sets error on failure
+- login(credentials: LoginCredentials): Promise<boolean>
+  Calls api/auth login, sets user and returns true on success, sets error and returns false on failure
 - logout(): void
   Clears user and error
+- clearError(): void
+  Clears error without affecting user state
 
 Token lives in context only — no localStorage, no sessionStorage.
 
