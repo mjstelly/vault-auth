@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--color-text-primary);
+}
+
+:root {
+  --color-primary:         #0F62FE;
+  --color-primary-dark:    #001D6C;
+  --color-text-primary:    #21272A;
+  --color-text-muted:      #697077;
+  --color-input-bg:        #F2F4F8;
+  --color-input-border:    #C1C7CD;
+  --color-separator:       #DDE1E6;
+  --color-checkbox-border: #121619;
+  --color-page-bg:         #F2F4F8;
+  --color-white:           #FFFFFF;
+  --color-error:           #DA1E28;
+
+  --font-family:           'Roboto', sans-serif;
+  --text-heading-size:     42px;
+  --text-heading-weight:   700;
+  --text-heading-lh:       110%;
+  --text-paragraph-size:   18px;
+  --text-button-size:      16px;
+  --text-button-weight:    500;
+  --text-button-ls:        0.5px;
+  --text-label-size:       14px;
+  --text-label-weight:     400;
+  --text-body-size:        16px;
+  --text-description-size: 12px;
+
+  --content-padding: 80px;
+  --section-gap:     48px;
+  --form-gap:        16px;
+  --field-gap:       8px;
+
+  --input-height:   48px;
+  --input-padding:  12px 16px;
+  --button-height:  48px;
+  --button-padding: 16px 12px;
+  --border-radius:  0px;
+}

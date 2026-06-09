@@ -7,8 +7,9 @@ type AuthContextValue = {
   isAuthenticated: boolean;
   isLoading: boolean;
   error: string | null;
-  login: (credentials: LoginCredentials) => Promise<void>;
+  login: (credentials: LoginCredentials) => Promise<boolean>;
   logout: () => void;
+  clearError: () => void;
 };
 
 export const AuthContext = createContext<AuthContextValue | null>(null);
@@ -18,14 +19,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const login = useCallback(async (credentials: LoginCredentials) => {
+  const login = useCallback(async (credentials: LoginCredentials): Promise<boolean> => {
     setIsLoading(true);
     setError(null);
     try {
       const authUser = await apiLogin(credentials);
       setUser(authUser);
-    } catch (err) {
+      return true;
+    } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'Login failed');
+      return false;
     } finally {
       setIsLoading(false);
     }
@@ -33,6 +36,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const logout = useCallback(() => {
     setUser(null);
+    setError(null);
+  }, []);
+
+  const clearError = useCallback(() => {
     setError(null);
   }, []);
 
@@ -45,6 +52,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         error,
         login,
         logout,
+        clearError,
       }}
     >
       {children}
