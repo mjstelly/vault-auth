@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { getMe, getProducts } from '../api/auth';
@@ -7,6 +7,7 @@ import styles from './DashboardPage.module.css';
 export function DashboardPage() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
 
   const accessToken = user?.accessToken ?? '';
 
@@ -23,6 +24,7 @@ export function DashboardPage() {
   });
 
   function handleSignOut() {
+    queryClient.removeQueries({ queryKey: ['auth'] });
     logout();
     navigate('/login');
   }

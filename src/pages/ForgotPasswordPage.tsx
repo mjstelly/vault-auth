@@ -26,6 +26,7 @@ export function ForgotPasswordPage() {
     setFieldError('');
     setSubmittedEmail(trimmedEmail);
     setIsSubmitting(true);
+    clearTimeout(timeoutRef.current);
     timeoutRef.current = setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
