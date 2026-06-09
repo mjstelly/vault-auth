@@ -35,6 +35,18 @@
   color: var(--color-text-primary);
 }
 
+.headlineBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.subheading {
+  font-size: var(--text-body-size);
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
 .form {
   display: flex;
   flex-direction: column;

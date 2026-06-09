@@ -49,7 +49,10 @@ export function SignupPage() {
         <img src={heroImg} alt="" className={styles.heroImg} />
       </div>
       <div className={styles.contentCol}>
-        <h1 className={styles.heading}>Sign Up</h1>
+        <div className={styles.headlineBlock}>
+          <h1 className={styles.heading}>Sign Up Free</h1>
+          <p className={styles.subheading}>14 day free access to unlimited resources</p>
+        </div>
         <form className={styles.form} onSubmit={handleSubmit} noValidate>
           <div className={styles.nameRow}>
             <div className={styles.nameField}>
