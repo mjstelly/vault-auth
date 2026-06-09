@@ -47,7 +47,7 @@ export function LoginPage() {
         <img src={heroImg} alt="" className={styles.heroImg} />
       </div>
       <div className={styles.contentCol}>
-        <h1 className={styles.heading}>Sign In</h1>
+        <h1 className={styles.heading}>Log In</h1>
         <form className={styles.form} onSubmit={handleSubmit} noValidate>
           {signupSuccess && (
             <div className={styles.successBanner}>
@@ -81,6 +81,9 @@ export function LoginPage() {
               onChange={(e) => handlePasswordChange(e.target.value)}
               autoComplete="current-password"
             />
+            <span className={styles.inputHint}>
+              It must be a combination of minimum 8 letters, numbers, and symbols.
+            </span>
           </div>
           <div className={styles.checkboxRow}>
             <div className={styles.checkboxLeft}>
@@ -102,7 +105,7 @@ export function LoginPage() {
             className={styles.primaryButton}
             disabled={isSubmitting}
           >
-            {isSubmitting ? 'Signing in...' : 'Sign In'}
+            {isSubmitting ? 'Logging in...' : 'Log In'}
           </button>
           {error && <span className={styles.errorText}>{error}</span>}
           <SocialButtons />

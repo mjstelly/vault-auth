@@ -72,6 +72,11 @@
   border-bottom-color: var(--color-primary);
 }
 
+.inputHint {
+  font-size: var(--text-description-size);
+  color: var(--color-text-muted);
+}
+
 .checkboxRow {
   display: flex;
   flex-direction: row;

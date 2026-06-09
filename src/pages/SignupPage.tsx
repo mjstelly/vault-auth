@@ -127,7 +127,7 @@ export function SignupPage() {
             {isSubmitting ? 'Creating account...' : 'Sign Up'}
           </button>
           {error && <span className={styles.errorText}>{error}</span>}
-          <SocialButtons />
+          <SocialButtons action="Sign up" />
           <hr className={styles.separator} />
           <Link to="/login" className={styles.signinLink}>
             Already have an account? Sign In
