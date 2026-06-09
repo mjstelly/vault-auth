@@ -8,16 +8,15 @@ export function ForgotPasswordPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [fieldError, setFieldError] = useState('');
-  const isMountedRef = useRef<boolean>(true);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   useEffect(() => {
-    isMountedRef.current = true;
     return () => {
-      isMountedRef.current = false;
+      clearTimeout(timeoutRef.current);
     };
   }, []);
 
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const trimmedEmail = email.trim();
     if (!trimmedEmail) {
@@ -27,10 +26,10 @@ export function ForgotPasswordPage() {
     setFieldError('');
     setSubmittedEmail(trimmedEmail);
     setIsSubmitting(true);
-    await new Promise<void>((resolve) => setTimeout(resolve, 1000));
-    if (!isMountedRef.current) return;
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    timeoutRef.current = setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+    }, 1000);
   }
 
   return (
