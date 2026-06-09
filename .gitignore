@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+COPILOT_REVIEW_GUIDE.md
+.history

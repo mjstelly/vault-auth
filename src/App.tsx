@@ -1,6 +1,8 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { LoginPage } from './pages/LoginPage';
 import { DashboardPage } from './pages/DashboardPage';
+import { ForgotPasswordPage } from './pages/ForgotPasswordPage';
+import { SignupPage } from './pages/SignupPage';
 import { ProtectedRoute } from './routes/ProtectedRoute';
 
 function App() {
@@ -8,6 +10,8 @@ function App() {
     <Routes>
       <Route path="/" element={<Navigate to="/login" replace />} />
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+      <Route path="/signup" element={<SignupPage />} />
       <Route element={<ProtectedRoute />}>
         <Route path="/dashboard" element={<DashboardPage />} />
       </Route>

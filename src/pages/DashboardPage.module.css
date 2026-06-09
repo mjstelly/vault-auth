@@ -1,0 +1,160 @@
+@keyframes pulse {
+  from { opacity: 1; }
+  to { opacity: 0.4; }
+}
+
+.page {
+  min-height: 100vh;
+  background: var(--color-white);
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.signOutButton {
+  border: 2px solid var(--color-primary);
+  background: transparent;
+  color: var(--color-primary);
+  padding: 8px 16px;
+  border-radius: 0;
+  font-size: var(--text-label-size);
+  cursor: pointer;
+  font-family: var(--font-family);
+}
+
+.profileCard {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+  background: var(--color-input-bg);
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.profileName {
+  font-weight: 700;
+  font-size: var(--text-body-size);
+  color: var(--color-text-primary);
+}
+
+.profileEmail {
+  font-size: var(--text-label-size);
+  color: var(--color-text-muted);
+}
+
+.skeletonBar {
+  height: 16px;
+  background: #DDE1E6;
+  border-radius: 0;
+  animation: pulse 0.5s ease-in-out alternate infinite;
+  width: 200px;
+}
+
+.skeletonBar + .skeletonBar {
+  width: 150px;
+}
+
+.profileError {
+  color: var(--color-error);
+  font-size: var(--text-body-size);
+}
+
+.productsSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.productsLabel {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 16px;
+}
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.productCard {
+  padding: 16px;
+  border: 1px solid var(--color-separator);
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.productTitle {
+  font-weight: 500;
+  font-size: var(--text-body-size);
+  color: var(--color-text-primary);
+}
+
+.productCategory {
+  font-size: var(--text-description-size);
+  color: var(--color-text-muted);
+}
+
+.productPrice {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.skeletonCard {
+  height: 120px;
+  background: #DDE1E6;
+  border-radius: 0;
+  animation: pulse 0.5s ease-in-out alternate infinite;
+}
+
+.productsError {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.productsErrorText {
+  color: var(--color-error);
+  font-size: var(--text-body-size);
+}
+
+.retryButton {
+  border: 1px solid var(--color-primary);
+  background: transparent;
+  color: var(--color-primary);
+  padding: 6px 12px;
+  border-radius: 0;
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-size: var(--text-label-size);
+  align-self: flex-start;
+}
