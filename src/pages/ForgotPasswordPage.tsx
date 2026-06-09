@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from 'react';
+import { useState, useEffect, useRef, type FormEvent } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './ForgotPasswordPage.module.css';
 
@@ -8,6 +8,14 @@ export function ForgotPasswordPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [fieldError, setFieldError] = useState('');
+  const isMountedRef = useRef<boolean>(true);
+
+  useEffect(() => {
+    isMountedRef.current = true;
+    return () => {
+      isMountedRef.current = false;
+    };
+  }, []);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -20,6 +28,7 @@ export function ForgotPasswordPage() {
     setSubmittedEmail(trimmedEmail);
     setIsSubmitting(true);
     await new Promise<void>((resolve) => setTimeout(resolve, 1000));
+    if (!isMountedRef.current) return;
     setIsSubmitting(false);
     setIsSubmitted(true);
   }
