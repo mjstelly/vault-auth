@@ -57,6 +57,14 @@ appear per the Figma design. DummyJSON has no OAuth endpoints. An inline
 message on click communicates this rather than hiding the buttons or
 silently failing.
 
+**Login - 1 was chosen over the card-centered Login - 3 variant.** The kit
+includes a second login screen ("Welcome Back") that implies an established
+relationship with a returning user — smaller social options, a Twitter button
+added, the form as the clear primary path. Login - 1 is the acquisition
+context: a user who may not have an account yet, social options at full
+prominence, a sign-up link at the bottom. Login - 1 better fits a demo
+where no prior relationship exists.
+
 **Design tokens from Figma inspect.** The source is an IBM Carbon-influenced
 wireframe kit. Two rules enforced throughout: bottom-border-only inputs
 (never a full box border) and zero border-radius on every element. Both are
