@@ -20,9 +20,7 @@ export function SignupPage() {
     const trimmedFirst = firstName.trim();
     const trimmedLast = lastName.trim();
     const trimmedEmail = email.trim();
-    const trimmedPassword = password.trim();
-
-    if (!trimmedFirst || !trimmedLast || !trimmedEmail || !trimmedPassword) {
+    if (!trimmedFirst || !trimmedLast || !trimmedEmail || !password) {
       setError('All fields are required.');
       return;
     }
@@ -34,7 +32,7 @@ export function SignupPage() {
         firstName: trimmedFirst,
         lastName: trimmedLast,
         email: trimmedEmail,
-        password: trimmedPassword,
+        password,
         username: trimmedEmail,
       });
       navigate('/login', { state: { signupSuccess: true } });

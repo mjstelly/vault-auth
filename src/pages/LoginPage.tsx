@@ -6,7 +6,8 @@ import { SocialButtons } from '../components/SocialButtons';
 import styles from './LoginPage.module.css';
 
 function isSignupSuccessState(s: unknown): s is { signupSuccess: boolean } {
-  return typeof s === 'object' && s !== null && 'signupSuccess' in s;
+  // `in` narrows to `object` but not the field type; cast required to read the value
+  return typeof s === 'object' && s !== null && 'signupSuccess' in s && (s as Record<string, unknown>)['signupSuccess'] === true;
 }
 
 export function LoginPage() {
@@ -25,7 +26,7 @@ export function LoginPage() {
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setIsSubmitting(true);
-    await login({ username: username.trim(), password: password.trim() });
+    await login({ username: username.trim(), password });
     setIsSubmitting(false);
     // On success, isAuthenticated becomes true and the guard above redirects to /dashboard
   }

@@ -13,7 +13,7 @@ Take-home assignment for Vault. Authentication workflow app.
 ## Stack
 - Vite + React + TypeScript (strict mode)
 - TanStack Query v5
-- React Router v6
+- React Router v7
 - Vercel deployment target
 
 ## API

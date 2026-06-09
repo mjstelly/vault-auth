@@ -11,13 +11,13 @@ export function DashboardPage() {
   const accessToken = user?.accessToken ?? '';
 
   const profileQuery = useQuery({
-    queryKey: ['auth', 'me', accessToken],
+    queryKey: ['auth', 'me', user?.id],
     queryFn: () => getMe(accessToken),
     enabled: accessToken !== '',
   });
 
   const productsQuery = useQuery({
-    queryKey: ['auth', 'products', accessToken],
+    queryKey: ['auth', 'products', user?.id],
     queryFn: () => getProducts(accessToken),
     enabled: accessToken !== '',
   });

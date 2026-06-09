@@ -10,8 +10,8 @@ loading, and error states.
 
 - Vite + React + TypeScript
 - TanStack Query v5
-- React Router v6
-- Deployed on Vercel: [live link]
+- React Router v7
+- Deployed on Vercel
 
 ## Running locally
 
